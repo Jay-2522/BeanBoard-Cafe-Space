@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+  --checker-dark: 30 35% 72%;   /* warm tan */
+  --checker-light: 35 55% 82%;  /* light cream-beige */
+  
+  /* also update your background */
+  --background: 35 50% 78%;
+
+    --background: 35 35% 91%;
+    --foreground: 20 40% 10%;
+
+    --card: 35 30% 95%;
+    --card-foreground: 20 40% 10%;
+
+    --popover: 35 35% 91%;
+    --popover-foreground: 20 40% 10%;
+
+    --primary: 174 100% 29%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 30% 85%;
+    --secondary-foreground: 20 40% 10%;
+
+    --muted: 30 20% 88%;
+    --muted-foreground: 20 15% 45%;
+
+    --accent: 30 60% 45%;
+    --accent-foreground: 35 35% 91%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 20% 82%;
+    --input: 30 20% 82%;
+    --ring: 174 100% 29%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --cream: 35 40% 92%;
+    --cream-light: 38 45% 96%;
+    --coffee-dark: 20 50% 8%;
+    --coffee-medium: 20 35% 22%;
+    --coffee-light: 25 25% 40%;
+    --caramel: 30 65% 45%;
+    --caramel-light: 30 50% 65%;
+    --teal: 174 100% 29%;
+    --teal-light: 174 60% 85%;
+    --warm-white: 35 30% 97%;
+    --chocolate: 15 60% 15%;
+    --chocolate-drip: 15 50% 20%;
+    --checker-light: 20 35% 18%;
+    --checker-dark: 20 45% 12%;
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+
+    --shadow-warm: 0 4px 30px -5px hsl(30 40% 30% / 0.12);
+    --shadow-elevated: 0 20px 60px -15px hsl(20 40% 10% / 0.15);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+/* Checkerboard pattern - BIGGER checks */
+.checker-bg {
+  background-image:
+    linear-gradient(45deg, hsl(var(--checker-dark)) 25%, transparent 25%),
+    linear-gradient(-45deg, hsl(var(--checker-dark)) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, hsl(var(--checker-dark)) 75%),
+    linear-gradient(-45deg, transparent 75%, hsl(var(--checker-dark)) 75%);
+  background-size: 340px 340px;
+  background-position: 0 0, 0 170px, 170px -170px, -170px 0px;
+  background-color: hsl(var(--checker-light));
+}
+
+/* Speech bubble */
+.speech-bubble {
+  position: relative;
+  background: hsl(var(--cream));
+  border-radius: 30px;
+  padding: 10px 24px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 20px hsl(20 40% 10% / 0.15);
+}
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid hsl(var(--cream));
+}
+
+/* Circular product frame */
+.product-circle {
+  border: 2px solid hsl(var(--border));
+  border-radius: 50%;
+  padding: 12px;
+  background: hsl(var(--cream-light));
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.product-circle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 40px hsl(20 40% 10% / 0.12);
+}
+.product-circle img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Drip effect */
+.drip-container {
+  position: relative;
+}
+.drip-container::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0 C120,0 120,40 180,40 C210,40 210,0 240,0 C360,0 360,50 420,50 C450,50 450,0 480,0 C600,0 600,35 660,35 C690,35 690,0 720,0 C840,0 840,45 900,45 C930,45 930,0 960,0 C1080,0 1080,30 1140,30 C1170,30 1170,0 1200,0 C1320,0 1320,40 1380,40 C1410,40 1410,0 1440,0 L1440,60 L0,60 Z' fill='%23E8DDD0'/%3E%3C/svg%3E") no-repeat bottom center;
+  background-size: 100% 100%;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--cream));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--coffee-light));
+  border-radius: 4px;
+}
+
+/* Menu card hover */
+.menu-card-image {
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.menu-card:hover .menu-card-image {
+  transform: scale(1.08);
+}
+
+/* Badge rotate */
+@keyframes badge-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.badge-spin {
+  animation: badge-spin 15s linear infinite;
+}
+
+/* Parallax float */
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-8px) rotate(1deg); }
+  66% { transform: translateY(4px) rotate(-1deg); }
+}
+.gentle-float {
+  animation: gentle-float 6s ease-in-out infinite;
+}
+
+/* Stagger reveal */
+.stagger-child {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.stagger-child.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Magnetic hover */
+.magnetic-hover {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.magnetic-hover:hover {
+  transform: scale(1.05) translateY(-4px);
+}
