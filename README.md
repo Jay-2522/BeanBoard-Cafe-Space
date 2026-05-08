@@ -29,7 +29,6 @@
 workshops, story, and locations — built with a focus on clean UI and smooth 
 performance.
 
-[**Click Here to See →**](http://localhost:8080/)
 
 ---
 
@@ -86,7 +85,7 @@ bun run dev
 
 Open your browser and visit:
 
-**[Click Here to See →](http://localhost:8080/)**
+**[Click Here to See →](https://bean-board-cafe-space.vercel.app/)**
 
 To create a production build:
 
