@@ -41,7 +41,7 @@ const Footer = () => {
 
         <div className="border-t border-cream/10 pt-8">
           <p className="text-cream/25 font-body text-sm flex items-center justify-center gap-1">
-            Made with <Heart className="w-3 h-3 text-caramel" /> by Nikita Reddy 
+            Made with <Heart className="w-3 h-3 text-caramel" /> by Jaidheep 
     
           </p>
         </div>
