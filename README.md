@@ -64,10 +64,10 @@ Ensure the following are installed before proceeding:
 
 ```bash
 # Clone the repository
-git clone https://github.com/Jay-2522/BeanBoard---Caf-.git
+git clone https://github.com/Jay-2522/BeanBoard-Cafe-Space.git
 
 # Navigate into the project directory
-cd BeanBoard---Caf-
+cd BeanBoard-Cafe-Space
 
 # Install all dependencies using Bun
 bun install
